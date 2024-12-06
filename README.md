@@ -42,6 +42,8 @@ Semua poin di atas harus diuraikan dengan jelas. Anda bebas menuliskan berapa pe
 ## Data Understanding
 Paragraf awal bagian ini menjelaskan informasi mengenai data yang Anda gunakan dalam proyek. Sertakan juga sumber atau tautan untuk mengunduh dataset. Contoh: [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/Restaurant+%26+consumer+data).
 
+Data yg digunakan merupakan
+
 Selanjutnya uraikanlah seluruh variabel atau fitur pada data. Sebagai contoh:  
 
 ### Variabel-variabel pada Restaurant UCI dataset adalah sebagai berikut:
