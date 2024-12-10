@@ -47,9 +47,24 @@ Data yg digunakan merupakan
 Selanjutnya uraikanlah seluruh variabel atau fitur pada data. Sebagai contoh:  
 
 ### Variabel-variabel pada Restaurant UCI dataset adalah sebagai berikut:
-- accepts : merupakan jenis pembayaran yang diterima pada restoran tertentu.
-- cuisine : merupakan jenis masakan yang disajikan pada restoran.
-- dst
+**Fitur**
+1. ***Temperature* (°C)**: Suhu rata-rata di wilayah tersebut.
+2. ***Humidity* (%)**: Kelembapan relatif yang tercatat di wilayah tersebut.
+3. **Konsentrasi PM2.5 (µg/m³)**: Tingkat partikel halus.
+4. **Konsentrasi PM10 (µg/m³)**: Tingkat partikel kasar.
+5. **Konsentrasi NO2 (ppb)**: Tingkat nitrogen dioksida.
+6. **Konsentrasi SO2 (ppb)**: Tingkat sulfur dioksida.
+7. **Konsentrasi CO (ppm)**: Tingkat karbon monoksida.
+8. ***Proximity_to_Industrial_Areas* (km)**: Jarak ke daerah industri terdekat.
+9. ***Population_Density* (jiwa/km²)**: Kepadatan penduduk; Jumlah jiwa per kilometer persegi di wilayah tersebut.
+  
+**Target**
+1. ***Air Quality***: Kualitas udara dalam kategori sebagai berikut:
+   1) *Good*: Udara bersih dengan tingkat polutan rendah
+   2) *Moderate*: Adanya beberapa polutan namun masih dapat diterima
+   3) *Poor*: Polusi tampak yang dapat menyebabkan gangguan kesehatan bagi kelompok sensitif.
+   4) *Hazardous*: Udara sangat berpolusi yang dapat menimbulkan gangguan kesehatan serius bagi semua orang.
+
 
 **Rubrik/Kriteria Tambahan (Opsional)**:
 - Melakukan beberapa tahapan yang diperlukan untuk memahami data, contohnya teknik visualisasi data atau exploratory data analysis.
