@@ -60,7 +60,7 @@ Fitur-fitur yang diliput dalam dataset ini mencakup suhu, kelembapan, konsentras
    4) *Hazardous*: Udara sangat berpolusi yang dapat menimbulkan gangguan kesehatan serius bagi semua orang.
 
 
-## Menangani Outliers
+### Menangani Outliers
 <img src="https://github.com/user-attachments/assets/d38d7710-51d8-42dc-a4e4-5675186e845e" width="32%"/>
 <img src="https://github.com/user-attachments/assets/93dba22e-8f59-4c30-8e24-a1857f7693fd" width="32%"/>
 <img src="https://github.com/user-attachments/assets/4174c2b2-c89e-443a-b35f-ffb8e80ab7fb" width="32%"/>
@@ -71,8 +71,9 @@ Fitur-fitur yang diliput dalam dataset ini mencakup suhu, kelembapan, konsentras
 <img src="https://github.com/user-attachments/assets/314140e1-1b19-41c7-ba13-5437f47f9eea" width="32%"/>
 <img src="https://github.com/user-attachments/assets/8f2ac10e-4bf1-4ca1-b423-9bdcafb06a9b" width="32%"/>
 
+Gambar di atas merupakan visualisasi *box plot* untuk mencari *outliers* dalam data. Tampak ada banyak sekali *outliers* (titik-titik kecil) pada setiap kolom. *Outliers* merupakan sampel yang nilainya cukup jauh dari cakupan umum data dan kemunculannya cukup jarang. Dalam tahap ini, *outliers* yang ada akan dihapus untuk mempertahankan pola dan konsistensi pada data.
 
-
+### 
 
 ## Data Preparation
 Pada bagian ini Anda menerapkan dan menyebutkan teknik data preparation yang dilakukan. Teknik yang digunakan pada notebook dan laporan harus berurutan.
