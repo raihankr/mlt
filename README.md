@@ -1,5 +1,5 @@
 # Laporan Proyek Machine Learning - Raihan Khairul Rochman
-# Deteksi Kualitas Udara
+# Deteksi Kualitas Udara Berdasarkan Parameter Zat Polutan
 
 ## Domain Proyek
 
@@ -61,19 +61,24 @@ Fitur-fitur yang diliput dalam dataset ini mencakup suhu, kelembapan, konsentras
 
 
 ### Menangani Outliers
-<img src="https://github.com/user-attachments/assets/d38d7710-51d8-42dc-a4e4-5675186e845e" width="32%"/>
-<img src="https://github.com/user-attachments/assets/93dba22e-8f59-4c30-8e24-a1857f7693fd" width="32%"/>
-<img src="https://github.com/user-attachments/assets/4174c2b2-c89e-443a-b35f-ffb8e80ab7fb" width="32%"/>
-<img src="https://github.com/user-attachments/assets/8ea3b524-4ec2-499e-b17c-6f1884f1fde8" width="32%"/>
-<img src="https://github.com/user-attachments/assets/5941119e-013d-472e-80c1-f75407e657fc" width="32%"/>
 <img src="https://github.com/user-attachments/assets/9a6c5be5-ab3e-47ff-bbc6-ab41d27f9a58" width="32%"/>
-<img src="https://github.com/user-attachments/assets/cdbb6b05-1704-425d-b777-6f469fcf316d" width="32%"/>
-<img src="https://github.com/user-attachments/assets/314140e1-1b19-41c7-ba13-5437f47f9eea" width="32%"/>
-<img src="https://github.com/user-attachments/assets/8f2ac10e-4bf1-4ca1-b423-9bdcafb06a9b" width="32%"/>
+<img src="https://github.com/user-attachments/assets/5941119e-013d-472e-80c1-f75407e657fc" width="32%"/>
+<img src="https://github.com/user-attachments/assets/8ea3b524-4ec2-499e-b17c-6f1884f1fde8" width="32%"/>
+<img src="https://github.com/user-attachments/assets/4174c2b2-c89e-443a-b35f-ffb8e80ab7fb" width="32%"/>
+<img src="https://github.com/user-attachments/assets/93dba22e-8f59-4c30-8e24-a1857f7693fd" width="32%"/>
 
 Gambar di atas merupakan visualisasi *box plot* untuk mencari *outliers* dalam data. Tampak ada banyak sekali *outliers* (titik-titik kecil) pada setiap kolom. *Outliers* merupakan sampel yang nilainya cukup jauh dari cakupan umum data dan kemunculannya cukup jarang. Dalam tahap ini, *outliers* yang ada akan dihapus untuk mempertahankan pola dan konsistensi pada data.
 
 ### 
+
+![image](https://github.com/user-attachments/assets/c8809dd7-e2ea-4a83-a8e4-8e99e5b52893)
+
+![image](https://github.com/user-attachments/assets/5c855ade-0c99-483e-8be4-a1dbc1fd755b)
+![image](https://github.com/user-attachments/assets/d355680d-25e7-480c-ae70-f07a07267ed5)
+![image](https://github.com/user-attachments/assets/1ba9310b-ca15-4c85-a0a6-c065f0238dde)
+![image](https://github.com/user-attachments/assets/9f8ed4ad-2060-458f-bf3f-8c5c16a28d9d)
+![image](https://github.com/user-attachments/assets/c81baa3a-b7a5-4316-b592-ded818748c9f)
+
 
 ## Data Preparation
 Pada bagian ini Anda menerapkan dan menyebutkan teknik data preparation yang dilakukan. Teknik yang digunakan pada notebook dan laporan harus berurutan.
@@ -83,7 +88,13 @@ Pada bagian ini Anda menerapkan dan menyebutkan teknik data preparation yang dil
 - Menjelaskan alasan mengapa diperlukan tahapan data preparation tersebut.
 
 ## Modeling
-Tahapan ini membahas mengenai model machine learning yang digunakan untuk menyelesaikan permasalahan. Anda perlu menjelaskan tahapan dan parameter yang digunakan pada proses pemodelan.
+Kami menggunakan tiga model dengan algoritma yang berbeda untuk pelatihan. Ketiga algoritma yang saya gunakan untuk model-model saya adalah *K-Nearest Neighbord*, *RandomForest*, serta *GradientBoosting*. Setiap algoritma atau *estimator* yang kami gunakan dimasukkan ke dalam *pipeline* bersama dengan sebuah *transformer StandarScaler*. Dengan memasukkan *transformer* untuk tahap *preprocessing* dan *estimator* ke dalam sebuah *pipeline*, kami tidak perlu secara manual menstandardisasi setiap data yang akan diproses oleh model. *Pipeline* yang kami rancang akan secara otomatis menstandardisasi data yang akan diproses untuk pelatihan maupun untuk evaluasi dan prediksi.
+
+### 1. K-Nearest Neighbors (Classifier)
+*K-Nearest Neighbors (KNN)* adalah sebuah algoritma sederhana dan intuitif yang dapat digunakan untuk regresi dan klasifikasi. Algoritma ini bekerja dengan mengidentifikasi
+
+### 2. Random Forest (Classifier)
+### 3. Gradient Boosting (Classifier)
 
 **Rubrik/Kriteria Tambahan (Opsional)**: 
 - Menjelaskan kelebihan dan kekurangan dari setiap algoritma yang digunakan.
