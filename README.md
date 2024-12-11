@@ -8,11 +8,8 @@ Kualitas udara merupakan salah satu indikator utama dalam menilai tingkat keseha
 Dalam projek ini, kami memanfaatkan data historis dari dataset *Air Quality and Pollutant Measurement* yang dipublikasikan di Kaggle. Dataset ini berfokus pada kualitas udara di berbagai daerah. Dataset ini mengandung tepat 5000 sampel atau baris yang mencakup faktor kritis lingkungan dan demografi yang berpengaruh terhadap tingkat polusi udara.
 
 Dengan menggunakan pendekatan analisis prediktif, model *machine learning* dilatih untuk memahami pola dan tren yang ada pada dataset dan menghasilkan prediksi yang akurat untuk mengklasifikasikan tingkat kualitas udara di daerah tertentu. Analisis prediktif ini tidak hanya dapat membantu memantau kualitas udara secara efisien, tetapi juga memberikan peringatan dini bagi masyarakat dan pembuat kebijakan untuk mengambil tindakan preventif. 
-
-**Rubrik/Kriteria Tambahan (Opsional)**:
-- Menyertakan hasil riset terkait atau referensi. Referensi yang diberikan harus berasal dari sumber yang kredibel dan author yang jelas.
   
-  Format Referensi: [Judul Referensi](https://scholar.google.com/) 
+<sup>1</sup>[Kurniawan, Agusta. "Pengukuran parameter kualitas udara (CO, NO2, SO2, O3 dan PM10) di Bukit Kototabang berbasis ISPU." Jurnal Teknosains 7.1 (2018): 1-13.](https://journal.ugm.ac.id/teknosains/article/view/34658) 
 
 ## Business Understanding
 
@@ -20,13 +17,11 @@ Kualitas udara yang buruk berdampak signifikan pada kesehatan manusia dan lingku
 
 ### Problem Statements
 
-Menjelaskan pernyataan masalah latar belakang:
 - Bagaimana hubungan antara masing-masing parameter terhadap tingkat kualitas udara?
 - Bagaimana tingkat kualitas udara di daerah dengan karakteristik tertentu?
 
 ### Goals
 
-Menjelaskan tujuan dari pernyataan masalah:
 - Mengetahui hubungan antara masing-masing parameter terhadap tingkat kualitas udara.
 - Membuat model machine learning untuk memprediksi tingkat kualitas udara berdasarkan parameter yang diberikan.
 
@@ -61,6 +56,7 @@ Fitur-fitur yang diliput dalam dataset ini mencakup suhu, kelembapan, konsentras
 
 
 ### Menangani Outliers
+
 <img src="https://github.com/user-attachments/assets/9a6c5be5-ab3e-47ff-bbc6-ab41d27f9a58" width="32%"/>
 <img src="https://github.com/user-attachments/assets/5941119e-013d-472e-80c1-f75407e657fc" width="32%"/>
 <img src="https://github.com/user-attachments/assets/8ea3b524-4ec2-499e-b17c-6f1884f1fde8" width="32%"/>
@@ -93,21 +89,55 @@ Pada kelima gambar di atas dapat disimpulkan sebuah pola bahwa setiap faktor ata
 
 ## Data Preparation
 
-### Ovrrsampling
+### Oversampling
+
+```py
+oversampler = RandomOverSampler(random_state=1)
+X_resampled, y_resampled = oversampler.fit_resample(X, y)
+```
+
 Pada tahap ini, seperti sudah diketahui sebelumnya pada tahap EDA, bahwa dataset kami memiliki ketidakseimbangan distribusi kelas yang berpotensi menghasilkan bias ketika jumlah data pada satu kelas lebih banyak dari yang lainnya. Dengan melakukan *oversampling*, ketidakseimbangan distribusi data akan ditangani dengan ditambahkannya sampel baru secara acak berdasarkan sampel yang sudah ada sebelumnya. Hal ini akan membuat jumlah data untuk setiap kelas seimbang dan tentu akan memperbanyak jumlah keseluruhan sampel data. Tahap ini membantu mencegah terjadinya bias dalam prediksi model.
 
 ### Pembagian Uji-Latih
 
+```py
+X_train, X_test, y_train, y_test = train_test_split(X_resampled, y_resampled, train_size=.8, random_state=1)
+```
+
 Pembagian uji-latih bekerja dengan membagi keseluruhan dataset awal menjadi dua bagian--uji dan latih. Proporsi yang digunakan dapat beragam, namun untuk model kami kali ini menggunakan proporsi 80% untuk data latih dan 20% untuk data uji. Pembagian ini berfungsi untuk mencegah model mempelajari semua data dan mengevaluasi performa model pada data yang tidak terlihat. Hal ini mencegah terjadinya *overfitting* di mana model terlanjur menghafalkan keseluruhan data latih sehingga tidak mampu untuk meprediksi data yang tidak terlihat.
 
 ## Modeling
+
 Kami menggunakan tiga model dengan algoritma yang berbeda untuk pelatihan. Ketiga algoritma yang saya gunakan untuk model-model saya adalah *K-Nearest Neighbord*, *RandomForest*, serta *GradientBoosting*. Setiap algoritma atau *estimator* yang kami gunakan dimasukkan ke dalam *pipeline* bersama dengan sebuah *transformer StandarScaler*. Dengan memasukkan *transformer* untuk tahap *preprocessing* dan *estimator* ke dalam sebuah *pipeline*, kami tidak perlu secara manual menstandardisasi setiap data yang akan diproses oleh model. *Pipeline* yang kami rancang akan secara otomatis menstandardisasi data yang akan diproses untuk pelatihan maupun untuk evaluasi dan prediksi.
 
 ### 1. K-Nearest Neighbors (Classifier)
+
+```py
+knn = Pipeline([
+    ('scaler', StandardScaler()),
+    ('knn', KNeighborsClassifier(n_neighbors=4, weights='uniform'))
+])
+```
+
 *K-Nearest Neighbors (KNN)* adalah sebuah algoritma sederhana dan intuitif yang dapat digunakan untuk regresi dan klasifikasi. Algoritma ini bekerja dengan mengidentifikasi *k* titik data dalam dataset pelatihan yang paling dekat dengan titik yang ingin diprediksi, berdasarkan metrik jarak seperti jarak Euclidean. Algoritma ini menetapkan kelas yang paling umum di ajtara tetangganya.
 
 ### 2. Random Forest (Classifier)
+
+```py
+random_forest = Pipeline([
+    ('scaler', StandardScaler()),
+    ('random_forest', RandomForestClassifier(n_estimators=50, max_depth=15))
+])
+```
+
 ### 3. Gradient Boosting (Classifier)
+
+```py
+gradient_boosting = Pipeline([
+    ('scaler', StandardScaler()),
+    ('gradient_boosting', GradientBoostingClassifier(learning_rate=.1, max_depth=3, n_estimators=100))
+])
+```
 
 **Rubrik/Kriteria Tambahan (Opsional)**: 
 - Menjelaskan kelebihan dan kekurangan dari setiap algoritma yang digunakan.
@@ -115,6 +145,7 @@ Kami menggunakan tiga model dengan algoritma yang berbeda untuk pelatihan. Ketig
 - Jika menggunakan dua atau lebih algoritma pada solution statement, maka pilih model terbaik sebagai solusi. **Jelaskan mengapa memilih model tersebut sebagai model terbaik**.
 
 ## Evaluation
+
 Pada bagian ini anda perlu menyebutkan metrik evaluasi yang digunakan. Lalu anda perlu menjelaskan hasil proyek berdasarkan metrik evaluasi yang digunakan.
 
 Sebagai contoh, Anda memiih kasus klasifikasi dan menggunakan metrik **akurasi, precision, recall, dan F1 score**. Jelaskan mengenai beberapa hal berikut:
