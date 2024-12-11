@@ -69,9 +69,19 @@ Fitur-fitur yang diliput dalam dataset ini mencakup suhu, kelembapan, konsentras
 
 Gambar di atas merupakan visualisasi *box plot* untuk mencari *outliers* dalam data. Tampak ada banyak sekali *outliers* (titik-titik kecil) pada setiap kolom. *Outliers* merupakan sampel yang nilainya cukup jauh dari cakupan umum data dan kemunculannya cukup jarang. Dalam tahap ini, *outliers* yang ada akan dihapus untuk mempertahankan pola dan konsistensi pada data.
 
-### 
+### Distribusi Data Variabel Fitur
 
 ![image](https://github.com/user-attachments/assets/c8809dd7-e2ea-4a83-a8e4-8e99e5b52893)
+
+Berdasarkan gambar di atas, tampak variabel PM2.5, PM10, dan SO2 memiliki distribusi data miring ke kanan. Sedangkan, variabel NO2 memiliki distribusi data cenderung normal. Serta, variabel CO memiliki distribusi data bimodal yang ditunjukkan dengan adanya dua puncak.
+
+### Distribusi Data Variabel Target
+
+![Screenshot_20241211_231241_Chrome](https://github.com/user-attachments/assets/eefd110b-fcbc-4cd6-9e42-2461fc5753b4)
+
+Pada gambar di atas terlihat jelas bahwa jumlah data untuk setiap kelas pada variabel target mengalamai ketidakseimbangan. Hal ini dampat berdampak pada pola yang akan dipelajari oleh model dan berpotensi menghasilkan bias. Oleh karena itu, kami menerapkan *oversampling* pada datazet untuk mempertahankan keseimbangan data.
+
+### Rata-Rata Nilai pada Fitur Numerik
 
 ![image](https://github.com/user-attachments/assets/5c855ade-0c99-483e-8be4-a1dbc1fd755b)
 ![image](https://github.com/user-attachments/assets/d355680d-25e7-480c-ae70-f07a07267ed5)
@@ -79,6 +89,7 @@ Gambar di atas merupakan visualisasi *box plot* untuk mencari *outliers* dalam d
 ![image](https://github.com/user-attachments/assets/9f8ed4ad-2060-458f-bf3f-8c5c16a28d9d)
 ![image](https://github.com/user-attachments/assets/c81baa3a-b7a5-4316-b592-ded818748c9f)
 
+Pada kelima gambar di atas dapat disimpulkan sebuah pola bahwa setiap faktor atau fitur cenderung memiliki nilai yang rendah untuk kategori *Good* berdasarkan nilai rata-ratanya pada fitur tersebut, diikuti oleh kategori *Moderate*, *Poor*, lalu *Hazardous*, yang secara bertahap memiliki rata-rata nilai yang semakin besar pada setiap fitur.
 
 ## Data Preparation
 Pada bagian ini Anda menerapkan dan menyebutkan teknik data preparation yang dilakukan. Teknik yang digunakan pada notebook dan laporan harus berurutan.
@@ -91,7 +102,7 @@ Pada bagian ini Anda menerapkan dan menyebutkan teknik data preparation yang dil
 Kami menggunakan tiga model dengan algoritma yang berbeda untuk pelatihan. Ketiga algoritma yang saya gunakan untuk model-model saya adalah *K-Nearest Neighbord*, *RandomForest*, serta *GradientBoosting*. Setiap algoritma atau *estimator* yang kami gunakan dimasukkan ke dalam *pipeline* bersama dengan sebuah *transformer StandarScaler*. Dengan memasukkan *transformer* untuk tahap *preprocessing* dan *estimator* ke dalam sebuah *pipeline*, kami tidak perlu secara manual menstandardisasi setiap data yang akan diproses oleh model. *Pipeline* yang kami rancang akan secara otomatis menstandardisasi data yang akan diproses untuk pelatihan maupun untuk evaluasi dan prediksi.
 
 ### 1. K-Nearest Neighbors (Classifier)
-*K-Nearest Neighbors (KNN)* adalah sebuah algoritma sederhana dan intuitif yang dapat digunakan untuk regresi dan klasifikasi. Algoritma ini bekerja dengan mengidentifikasi
+*K-Nearest Neighbors (KNN)* adalah sebuah algoritma sederhana dan intuitif yang dapat digunakan untuk regresi dan klasifikasi. Algoritma ini bekerja dengan mengidentifikasi *k* titik data dalam dataset pelatihan yang paling dekat dengan titik yang ingin diprediksi, berdasarkan metrik jarak seperti jarak Euclidean. Algoritma ini menetapkan kelas yang paling umum di ajtara tetangganya.
 
 ### 2. Random Forest (Classifier)
 ### 3. Gradient Boosting (Classifier)
