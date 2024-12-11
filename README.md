@@ -92,11 +92,13 @@ Pada gambar di atas terlihat jelas bahwa jumlah data untuk setiap kelas pada var
 Pada kelima gambar di atas dapat disimpulkan sebuah pola bahwa setiap faktor atau fitur cenderung memiliki nilai yang rendah untuk kategori *Good* berdasarkan nilai rata-ratanya pada fitur tersebut, diikuti oleh kategori *Moderate*, *Poor*, lalu *Hazardous*, yang secara bertahap memiliki rata-rata nilai yang semakin besar pada setiap fitur.
 
 ## Data Preparation
-Pada bagian ini Anda menerapkan dan menyebutkan teknik data preparation yang dilakukan. Teknik yang digunakan pada notebook dan laporan harus berurutan.
 
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan proses data preparation yang dilakukan
-- Menjelaskan alasan mengapa diperlukan tahapan data preparation tersebut.
+### Ovrrsampling
+Pada tahap ini, seperti sudah diketahui sebelumnya pada tahap EDA, bahwa dataset kami memiliki ketidakseimbangan distribusi kelas yang berpotensi menghasilkan bias ketika jumlah data pada satu kelas lebih banyak dari yang lainnya. Dengan melakukan *oversampling*, ketidakseimbangan distribusi data akan ditangani dengan ditambahkannya sampel baru secara acak berdasarkan sampel yang sudah ada sebelumnya. Hal ini akan membuat jumlah data untuk setiap kelas seimbang dan tentu akan memperbanyak jumlah keseluruhan sampel data. Tahap ini membantu mencegah terjadinya bias dalam prediksi model.
+
+### Pembagian Uji-Latih
+
+Pembagian uji-latih bekerja dengan membagi keseluruhan dataset awal menjadi dua bagian--uji dan latih. Proporsi yang digunakan dapat beragam, namun untuk model kami kali ini menggunakan proporsi 80% untuk data latih dan 20% untuk data uji. Pembagian ini berfungsi untuk mencegah model mempelajari semua data dan mengevaluasi performa model pada data yang tidak terlihat. Hal ini mencegah terjadinya *overfitting* di mana model terlanjur menghafalkan keseluruhan data latih sehingga tidak mampu untuk meprediksi data yang tidak terlihat.
 
 ## Modeling
 Kami menggunakan tiga model dengan algoritma yang berbeda untuk pelatihan. Ketiga algoritma yang saya gunakan untuk model-model saya adalah *K-Nearest Neighbord*, *RandomForest*, serta *GradientBoosting*. Setiap algoritma atau *estimator* yang kami gunakan dimasukkan ke dalam *pipeline* bersama dengan sebuah *transformer StandarScaler*. Dengan memasukkan *transformer* untuk tahap *preprocessing* dan *estimator* ke dalam sebuah *pipeline*, kami tidak perlu secara manual menstandardisasi setiap data yang akan diproses oleh model. *Pipeline* yang kami rancang akan secara otomatis menstandardisasi data yang akan diproses untuk pelatihan maupun untuk evaluasi dan prediksi.
