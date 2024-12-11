@@ -10,7 +10,6 @@ Dalam projek ini, kami memanfaatkan data historis dari dataset *Air Quality and 
 Dengan menggunakan pendekatan analisis prediktif, model *machine learning* dilatih untuk memahami pola dan tren yang ada pada dataset dan menghasilkan prediksi yang akurat untuk mengklasifikasikan tingkat kualitas udara di daerah tertentu. Analisis prediktif ini tidak hanya dapat membantu memantau kualitas udara secara efisien, tetapi juga memberikan peringatan dini bagi masyarakat dan pembuat kebijakan untuk mengambil tindakan preventif. 
 
 **Rubrik/Kriteria Tambahan (Opsional)**:
-- Jelaskan mengapa dan bagaimana masalah tersebut harus diselesaikan
 - Menyertakan hasil riset terkait atau referensi. Referensi yang diberikan harus berasal dari sumber yang kredibel dan author yang jelas.
   
   Format Referensi: [Judul Referensi](https://scholar.google.com/) 
@@ -31,14 +30,12 @@ Menjelaskan tujuan dari pernyataan masalah:
 - Mengetahui hubungan antara masing-masing parameter terhadap tingkat kualitas udara.
 - Membuat model machine learning untuk memprediksi tingkat kualitas udara berdasarkan parameter yang diberikan.
 
-Semua poin di atas harus diuraikan dengan jelas. Anda bebas menuliskan berapa pernyataan masalah dan juga goals yang diinginkan.
-
 ### Solution statements
-- Mengajukan 2 atau lebih solution statement. Misalnya, menggunakan dua atau lebih algoritma untuk mencapai solusi yang diinginkan atau melakukan improvement pada baseline model dengan hyperparameter tuning.
-- Solusi yang diberikan harus dapat terukur dengan metrik evaluasi.
+- Membangun model klasifikasi dengan variabel *Air Quality* (kualitas udara) sebagai target.
+- Membangun 3 model dengan algoritma yang berbeda dan mengevaluasi masing-masing model dengan metrik akurasi, presisi, *recall*, dan *f1 score*, serta *confusion matrix*.
 
 ## Data Understanding
-Dataset yang kami gunakan adalah Aid Quality and Pollutant Measurement yang dipublikasikan di Kaggle. Data ini berfokus pada pengukuran kualitas udara di berbagai karaktetistik wilayah. Dataset ini mengandung tepat 5000 sampel atau baris dan mencakup faktor kritis lingkungan dan demografi yang berpengaruh terhadap tingkat polusi udara.
+Dataset yang kami gunakan adalah Air Quality and Pollutant Measurement yang dipublikasikan di Kaggle. Data ini berfokus pada pengukuran kualitas udara di berbagai karaktetistik wilayah. Dataset ini mengandung tepat 5000 sampel atau baris dan mencakup faktor kritis lingkungan dan demografi yang berpengaruh terhadap tingkat polusi udara.
 
 Fitur-fitur yang diliput dalam dataset ini mencakup suhu, kelembapan, konsentrasi PM2.5, PM10, NO2, SO2, CO, dan jarak ke daerah industri, serta kepadatan populasi. Variabel target dalam dataset ini merupakan kualitas udara yang dikategorikan ke dalam *good* (baik), *moderate* (sedang), *poor* (buruk), dan *hazardous* (berbahaya)
 - [Kaggle-Air Quality and Pollutant Measurement](https://www.kaggle.com/api/v1/datasets/download/mujtabamatin/air-quality-and-pollution-assessment).
@@ -63,8 +60,20 @@ Fitur-fitur yang diliput dalam dataset ini mencakup suhu, kelembapan, konsentras
    4) *Hazardous*: Udara sangat berpolusi yang dapat menimbulkan gangguan kesehatan serius bagi semua orang.
 
 
-**Rubrik/Kriteria Tambahan (Opsional)**:
-- Melakukan beberapa tahapan yang diperlukan untuk memahami data, contohnya teknik visualisasi data atau exploratory data analysis.
+## Menangani Outliers
+<img src="https://github.com/user-attachments/assets/d38d7710-51d8-42dc-a4e4-5675186e845e" width="30%"/>
+<img src="https://github.com/user-attachments/assets/93dba22e-8f59-4c30-8e24-a1857f7693fd" width="30%"/>
+
+![image](https://github.com/user-attachments/assets/4174c2b2-c89e-443a-b35f-ffb8e80ab7fb)
+![image](https://github.com/user-attachments/assets/8ea3b524-4ec2-499e-b17c-6f1884f1fde8)
+![image](https://github.com/user-attachments/assets/5941119e-013d-472e-80c1-f75407e657fc)
+![image](https://github.com/user-attachments/assets/9a6c5be5-ab3e-47ff-bbc6-ab41d27f9a58)
+![image](https://github.com/user-attachments/assets/cdbb6b05-1704-425d-b777-6f469fcf316d)
+![image](https://github.com/user-attachments/assets/314140e1-1b19-41c7-ba13-5437f47f9eea)
+![image](https://github.com/user-attachments/assets/8f2ac10e-4bf1-4ca1-b423-9bdcafb06a9b)
+
+
+
 
 ## Data Preparation
 Pada bagian ini Anda menerapkan dan menyebutkan teknik data preparation yang dilakukan. Teknik yang digunakan pada notebook dan laporan harus berurutan.
