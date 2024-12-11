@@ -61,16 +61,15 @@ Fitur-fitur yang diliput dalam dataset ini mencakup suhu, kelembapan, konsentras
 
 
 ## Menangani Outliers
-<img src="https://github.com/user-attachments/assets/d38d7710-51d8-42dc-a4e4-5675186e845e" width="30%"/>
-<img src="https://github.com/user-attachments/assets/93dba22e-8f59-4c30-8e24-a1857f7693fd" width="30%"/>
-
-![image](https://github.com/user-attachments/assets/4174c2b2-c89e-443a-b35f-ffb8e80ab7fb)
-![image](https://github.com/user-attachments/assets/8ea3b524-4ec2-499e-b17c-6f1884f1fde8)
-![image](https://github.com/user-attachments/assets/5941119e-013d-472e-80c1-f75407e657fc)
-![image](https://github.com/user-attachments/assets/9a6c5be5-ab3e-47ff-bbc6-ab41d27f9a58)
-![image](https://github.com/user-attachments/assets/cdbb6b05-1704-425d-b777-6f469fcf316d)
-![image](https://github.com/user-attachments/assets/314140e1-1b19-41c7-ba13-5437f47f9eea)
-![image](https://github.com/user-attachments/assets/8f2ac10e-4bf1-4ca1-b423-9bdcafb06a9b)
+<img src="https://github.com/user-attachments/assets/d38d7710-51d8-42dc-a4e4-5675186e845e" width="32%"/>
+<img src="https://github.com/user-attachments/assets/93dba22e-8f59-4c30-8e24-a1857f7693fd" width="32%"/>
+<img src="https://github.com/user-attachments/assets/4174c2b2-c89e-443a-b35f-ffb8e80ab7fb" width="32%"/>
+<img src="https://github.com/user-attachments/assets/8ea3b524-4ec2-499e-b17c-6f1884f1fde8" width="32%"/>
+<img src="https://github.com/user-attachments/assets/5941119e-013d-472e-80c1-f75407e657fc" width="32%"/>
+<img src="https://github.com/user-attachments/assets/9a6c5be5-ab3e-47ff-bbc6-ab41d27f9a58" width="32%"/>
+<img src="https://github.com/user-attachments/assets/cdbb6b05-1704-425d-b777-6f469fcf316d" width="32%"/>
+<img src="https://github.com/user-attachments/assets/314140e1-1b19-41c7-ba13-5437f47f9eea" width="32%"/>
+<img src="https://github.com/user-attachments/assets/8f2ac10e-4bf1-4ca1-b423-9bdcafb06a9b" width="32%"/>
 
 
 
