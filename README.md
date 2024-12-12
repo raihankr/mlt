@@ -160,23 +160,52 @@ Parameter `learning_rate` menentukan besaran kontribusi untuk setiap "pohon" ter
 
 Berdasarkan hasil evaluasi sederhana, diperoleh nilai akurasi sebagai berikut untuk setiap model:
 - KNN:
-  - Akurasi Training: 
+  - Akurasi *Training*: ~95%
+  - Akurasi *Testing*: ~93%
+- Random Forest:
+  - Akurasi *Training*: ~99%
+  - Akurasi *Testing*L ~97%
+- Gradient Boosting:
+  - Akurasi *Training*: ~94%
+  - Akurasi *Testing*: ~92%
+Berdasarkan perolehan nilai akurasi ini, model Random Forest menunjukkan hasil yang lebih unggul dibandingkan kedua model lainnya yang dibuktikan dengan nilai akurasi pelatihan dan pengujian yang relatif lebih tinggi dibandingkan dengan kedua model lainnya. Oleh karena itu, model Random Forest dipilih sebagai model terbaik diantara ketiga model tersebut.
 
 ## Evaluation
 
-Pada bagian ini anda perlu menyebutkan metrik evaluasi yang digunakan. Lalu anda perlu menjelaskan hasil proyek berdasarkan metrik evaluasi yang digunakan.
+Untuk evaluasi akhir, kami menggunakan beberapa metriks, yaitu:
+- Akurasi: Perbandingan nilai prediksi yang benar dari keseluruhan prediksi.
+  Rumus:
+  - `Jumlah prediksi benar` / `Jumlah prediksi total`; atau,
+  - (TP + TN) / (TP + FP + TN + FN)
+- Presisi: Perbandingan nilai *true positive*--prediksi yang benar dari kategori positif--dari keseluruhan prediksi positif.
+  Rumus:
+  - TP / (TP + FP)
+- *Recall*: Perbandingan nilai *true positive* dari keseluruhan jumlah positif yang ada.
+  Rumus:
+  - TP / (TP + FN)
+- *F1 Score*: Gabungan dari nilai presisi dan *recall*.
+  Rumus:
+  - 2 * (`Presisi` * `Recall`) / (`Presisi` + `Recall`)
+- *Confusion Matrix*: Diagram yang membandingkan jumlah prediksi dengan jumlah data yang ada untuk setiap kategori; jumlah prediksi yang benar dan salah untuk setiap kategori.
 
-Sebagai contoh, Anda memiih kasus klasifikasi dan menggunakan metrik **akurasi, precision, recall, dan F1 score**. Jelaskan mengenai beberapa hal berikut:
-- Penjelasan mengenai metrik yang digunakan
-- Menjelaskan hasil proyek berdasarkan metrik evaluasi
+Note untuk rumus:
+  TP = True Positive
+  FP = False Positive
+  TN = True Negative
+  FN = False Negative
 
-Ingatlah, metrik evaluasi yang digunakan harus sesuai dengan konteks data, problem statement, dan solusi yang diinginkan.
+![image](https://github.com/user-attachments/assets/5381de82-e099-46a4-8ca1-e3c97b17274d)
+![image](https://github.com/user-attachments/assets/e23d8cc1-5596-46d3-8518-f64b898b698b)
+Kedua gambar di atas menunjukkan bahwa hasil evaluasi untuk model adalah sangat baik dengan rata-rata nilai untuk setiap metriknya di atas 97%. Diagram *confusion matrix* juga menunjukkan bahwa hanya sedikit sekali prediksi model yang salah. Hal ini menunjukkan bahwa performa model sudah cukup optimal.
 
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan formula metrik dan bagaimana metrik tersebut bekerja.
+Selanjutnya, model diuji dengan 4 sampel data kustom untuk diprediksi tingkat kualitas udaranya.
+- Data yang pertama menunjukkan konsentrasi zat polutan yang relatif sedikit. Target: Good
+- Data yang kedua memiliki sedikit peningkatan pada konsentrasi jumlah polutan secara keseluruhan. Target: Moderate
+- Data yang ketiga memiliki peningkatan yang cukup signifikan pada konsentrasi PM10. Target: Poor
+- Data yang keempat memiliki peningkatan pada NO2 yang sangat melebihi ambang batas dibandingkan data ke-3. Target: Hazardous
 
-**---Ini adalah bagian akhir laporan---**
+Hasil prediksi:
+![image](https://github.com/user-attachments/assets/c0f20b5f-a216-44db-ba99-60690f7f5f73)
 
-_Catatan:_
-- _Anda dapat menambahkan gambar, kode, atau tabel ke dalam laporan jika diperlukan. Temukan caranya pada contoh dokumen markdown di situs editor [Dillinger](https://dillinger.io/), [Github Guides: Mastering markdown](https://guides.github.com/features/mastering-markdown/), atau sumber lain di internet. Semangat!_
-- Jika terdapat penjelasan yang harus menyertakan code snippet, tuliskan dengan sewajarnya. Tidak perlu menuliskan keseluruhan kode project, cukup bagian yang ingin dijelaskan saja.
+Kesimpulan: Sejauh evaluasi, model menunjukkan performa yang baik dari keseluruhan metrik, menunjukkan bahwa model dapat memprediksi dengan akurat. Model juga dapat memprediksi tingkat kualitas udara dari parameter atau kriteria zat polutan di wilayah tertentu.
+
