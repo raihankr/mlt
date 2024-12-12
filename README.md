@@ -121,7 +121,14 @@ knn = Pipeline([
 ])
 ```
 
-*K-Nearest Neighbors (KNN)* adalah sebuah algoritma sederhana dan intuitif yang dapat digunakan untuk A
+*K-Nearest Neighbors (KNN)* adalah sebuah algoritma sederhana yang bekerja dengan mengidentifikasi *k* titik data dalam dataset pelatihan yang paling dekat dengan titik yang ingin diprediksi, berdasarkan metrik jarak seperti jarak Euclidean.
+
+Parameter `n_neighbors` menentukan berapa banyak tetangga yang akan
+
+
+- **Kelebihan**: Mudah diimplementasikan dan tidak memerlukan fase pelatihan model secara eksplisit, sehingga efektif untuk dataset kecil.
+- **Kekurangan**: Dapat memakan banyak sumber daya untuk dataset yang besar dan sensitif terhadap data yang tidak relevan.
+
 ### 2. Random Forest (Classifier)
 
 ```py
@@ -131,6 +138,9 @@ random_forest = Pipeline([
 ])
 ```
 
+- **Kelebihan**: Mengurangi *overfitting* dan meningkatkan generalisasi dibandingkan *Decision Tree*; dapat menangani nilai yang hilang dengan baik dan efektif dalam menangani hubungan non-linear dalam data.
+- **Kekurangan**: Interpretabilitasnya menurun seiring bertambahnya jumlah pohon, dan proses pelatihan serta prediksi bisa lebih lambat untuk dataset yang sangat besar.
+
 ### 3. Gradient Boosting (Classifier)
 
 ```py
@@ -139,6 +149,9 @@ gradient_boosting = Pipeline([
     ('gradient_boosting', GradientBoostingClassifier(learning_rate=.1, max_depth=3, n_estimators=100))
 ])
 ```
+
+- **Kelebihan**:
+- **Kekurangan**: 
 
 **Rubrik/Kriteria Tambahan (Opsional)**: 
 - Menjelaskan kelebihan dan kekurangan dari setiap algoritma yang digunakan.
