@@ -119,8 +119,7 @@ knn = Pipeline([
 
 *K-Nearest Neighbors (KNN)* adalah sebuah algoritma sederhana yang bekerja dengan mengidentifikasi *k* titik data dalam dataset pelatihan yang paling dekat dengan titik yang ingin diprediksi, berdasarkan metrik jarak seperti jarak Euclidean.
 
-Parameter `n_neighbors` menentukan berapa banyak tetangga yang akan
-
+Parameter `n_neighbors` menentukan berapa banyak tetangga yang akan dipertimbangkan untuk membuat prediksi. Sedangkan, parameter `weights='uniform'` menentukan bahwa semua tetangga yang dipilih memiliki bobot yang sama.
 
 - **Kelebihan**: Mudah diimplementasikan dan tidak memerlukan fase pelatihan model secara eksplisit, sehingga efektif untuk dataset kecil.
 - **Kekurangan**: Dapat memakan banyak sumber daya untuk dataset yang besar dan sensitif terhadap data yang tidak relevan.
@@ -134,6 +133,10 @@ random_forest = Pipeline([
 ])
 ```
 
+*Random Forest* adalah sebuah algoritma *ensemble* yang menggabungkan beberapa *decision tree* untuk meningkatkan akurasi prediksi dan menangani *overfitting*.
+
+Parameter `n_estimators` menentukan jumlah *Decision Tree* yang akan dibuat. Sedangkan, parameter `max_depth` menentukan kedalaman maksimum setiap *Decision Tree* dalam *ensemble*.
+
 - **Kelebihan**: Mengurangi *overfitting* dan meningkatkan generalisasi dibandingkan *Decision Tree*; dapat menangani nilai yang hilang dengan baik dan efektif dalam menangani hubungan non-linear dalam data.
 - **Kekurangan**: Interpretabilitasnya menurun seiring bertambahnya jumlah pohon, dan proses pelatihan serta prediksi bisa lebih lambat untuk dataset yang sangat besar.
 
@@ -146,13 +149,18 @@ gradient_boosting = Pipeline([
 ])
 ```
 
-- **Kelebihan**:
-- **Kekurangan**: 
+*Gradient Boosting* adalah sebuah algoritma yang membangun model secara berurutan, di mana setiap model baru berfokus pada kesalahan residu (perbedaan antara nilai prediksi dan aktual) dari model sebelumnya.
 
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan kelebihan dan kekurangan dari setiap algoritma yang digunakan.
-- Jika menggunakan satu algoritma pada solution statement, lakukan proses improvement terhadap model dengan hyperparameter tuning. **Jelaskan proses improvement yang dilakukan**.
-- Jika menggunakan dua atau lebih algoritma pada solution statement, maka pilih model terbaik sebagai solusi. **Jelaskan mengapa memilih model tersebut sebagai model terbaik**.
+Parameter `learning_rate` menentukan besaran kontribusi untuk setiap "pohon" terhadap prediksi akhir. Parameter `mas_depth` menentukan kedalaman maksimum setiap *Decision Tree* dalam *ensemble*. Sedangkan, parameter `n_estimators` menentukan berapa banyak *Decision Tree* yang akan dibangun secara berurutan dalam *ensemble*.
+
+- **Kelebihan**: Mengurangi bias dan variasi, cocok untuk data yang kompleks
+- **Kekurangan**: Rentan terhadap *overfitting*; Membutuhkan sumber daya yang banyak; lebih lambat dibandingkan Random Forest
+
+---
+
+Berdasarkan hasil evaluasi sederhana, diperoleh nilai akurasi sebagai berikut untuk setiap model:
+- KNN:
+  - Akurasi Training: 
 
 ## Evaluation
 
