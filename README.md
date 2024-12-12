@@ -5,11 +5,13 @@
 
 Kualitas udara merupakan salah satu indikator utama dalam menilai tingkat kesehatan lingkungan dan dampaknya terhadap kesehatan manusia. Polusi udara yang dihasilkan dari aktivitas industri, transportasi, dan pembakaran bahan bakar fosil telah menjadi perhatian global karena berkontribusi pada berbagai penyakit pernapasan, kardiovaskular, hingga kematian dini.
 
+Pengukuran kualitas udara dapat dilakukan dengan mengamati faktor-faktor zat polutan yang mencakup PM2.5, PM10, NO2, SO2, dan CO. Menurut Agusta Kurniawan (2018)<sup>1</sup>, dengan pengukuran indeks ISPU, pengaruh zat polutan tersebup pada nilai ISPU lebih dari 100 dapat menicu berbagai gangguan pernapasan dan kardiovaskular. 
+
 Dalam projek ini, kami memanfaatkan data historis dari dataset *Air Quality and Pollutant Measurement* yang dipublikasikan di Kaggle. Dataset ini berfokus pada kualitas udara di berbagai daerah. Dataset ini mengandung tepat 5000 sampel atau baris yang mencakup faktor kritis lingkungan dan demografi yang berpengaruh terhadap tingkat polusi udara.
 
 Dengan menggunakan pendekatan analisis prediktif, model *machine learning* dilatih untuk memahami pola dan tren yang ada pada dataset dan menghasilkan prediksi yang akurat untuk mengklasifikasikan tingkat kualitas udara di daerah tertentu. Analisis prediktif ini tidak hanya dapat membantu memantau kualitas udara secara efisien, tetapi juga memberikan peringatan dini bagi masyarakat dan pembuat kebijakan untuk mengambil tindakan preventif. 
   
-<sup>1</sup>[Kurniawan, Agusta. "Pengukuran parameter kualitas udara (CO, NO2, SO2, O3 dan PM10) di Bukit Kototabang berbasis ISPU." Jurnal Teknosains 7.1 (2018): 1-13.](https://journal.ugm.ac.id/teknosains/article/view/34658) 
+<sup>1</sup> [Kurniawan, Agusta. "Pengukuran parameter kualitas udara (CO, NO2, SO2, O3 dan PM10) di Bukit Kototabang berbasis ISPU." Jurnal Teknosains 7.1 (2018): 1-13.](https://journal.ugm.ac.id/teknosains/article/view/34658) 
 
 ## Business Understanding
 
@@ -119,8 +121,7 @@ knn = Pipeline([
 ])
 ```
 
-*K-Nearest Neighbors (KNN)* adalah sebuah algoritma sederhana dan intuitif yang dapat digunakan untuk regresi dan klasifikasi. Algoritma ini bekerja dengan mengidentifikasi *k* titik data dalam dataset pelatihan yang paling dekat dengan titik yang ingin diprediksi, berdasarkan metrik jarak seperti jarak Euclidean. Algoritma ini menetapkan kelas yang paling umum di ajtara tetangganya.
-
+*K-Nearest Neighbors (KNN)* adalah sebuah algoritma sederhana dan intuitif yang dapat digunakan untuk A
 ### 2. Random Forest (Classifier)
 
 ```py
