@@ -195,6 +195,7 @@ Note untuk rumus:
 
 ![image](https://github.com/user-attachments/assets/5381de82-e099-46a4-8ca1-e3c97b17274d)
 ![image](https://github.com/user-attachments/assets/e23d8cc1-5596-46d3-8518-f64b898b698b)
+
 Kedua gambar di atas menunjukkan bahwa hasil evaluasi untuk model adalah sangat baik dengan rata-rata nilai untuk setiap metriknya di atas 97%. Diagram *confusion matrix* juga menunjukkan bahwa hanya sedikit sekali prediksi model yang salah. Hal ini menunjukkan bahwa performa model sudah cukup optimal.
 
 Selanjutnya, model diuji dengan 4 sampel data kustom untuk diprediksi tingkat kualitas udaranya.
