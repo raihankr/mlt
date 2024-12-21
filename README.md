@@ -52,17 +52,6 @@ Fitur-fitur yang diliput dalam dataset ini mencakup suhu, kelembapan, konsentras
    3) *Poor*: Polusi tampak yang dapat menyebabkan gangguan kesehatan bagi kelompok sensitif.
    4) *Hazardous*: Udara sangat berpolusi yang dapat menimbulkan gangguan kesehatan serius bagi semua orang.
 
-
-### Menangani Outliers
-
-<img src="https://github.com/user-attachments/assets/9a6c5be5-ab3e-47ff-bbc6-ab41d27f9a58" width="32%"/>
-<img src="https://github.com/user-attachments/assets/5941119e-013d-472e-80c1-f75407e657fc" width="32%"/>
-<img src="https://github.com/user-attachments/assets/8ea3b524-4ec2-499e-b17c-6f1884f1fde8" width="32%"/>
-<img src="https://github.com/user-attachments/assets/4174c2b2-c89e-443a-b35f-ffb8e80ab7fb" width="32%"/>
-<img src="https://github.com/user-attachments/assets/93dba22e-8f59-4c30-8e24-a1857f7693fd" width="32%"/>
-
-Gambar di atas merupakan visualisasi *box plot* untuk mencari *outliers* dalam data. Tampak ada banyak sekali *outliers* (titik-titik kecil) pada setiap kolom. *Outliers* merupakan sampel yang nilainya cukup jauh dari cakupan umum data dan kemunculannya cukup jarang. Dalam tahap ini, *outliers* yang ada akan dihapus untuk mempertahankan pola dan konsistensi pada data.
-
 ### Distribusi Data Variabel Fitur
 
 ![image](https://github.com/user-attachments/assets/c8809dd7-e2ea-4a83-a8e4-8e99e5b52893)
@@ -86,6 +75,16 @@ Pada gambar di atas terlihat jelas bahwa jumlah data untuk setiap kelas pada var
 Pada kelima gambar di atas dapat disimpulkan sebuah pola bahwa setiap faktor atau fitur cenderung memiliki nilai yang rendah untuk kategori *Good* berdasarkan nilai rata-ratanya pada fitur tersebut, diikuti oleh kategori *Moderate*, *Poor*, lalu *Hazardous*, yang secara bertahap memiliki rata-rata nilai yang semakin besar pada setiap fitur.
 
 ## Data Preparation
+
+### Menangani Outliers
+
+<img src="https://github.com/user-attachments/assets/9a6c5be5-ab3e-47ff-bbc6-ab41d27f9a58" width="32%"/>
+<img src="https://github.com/user-attachments/assets/5941119e-013d-472e-80c1-f75407e657fc" width="32%"/>
+<img src="https://github.com/user-attachments/assets/8ea3b524-4ec2-499e-b17c-6f1884f1fde8" width="32%"/>
+<img src="https://github.com/user-attachments/assets/4174c2b2-c89e-443a-b35f-ffb8e80ab7fb" width="32%"/>
+<img src="https://github.com/user-attachments/assets/93dba22e-8f59-4c30-8e24-a1857f7693fd" width="32%"/>
+
+Gambar di atas merupakan visualisasi *box plot* untuk mencari *outliers* dalam data. Tampak ada banyak sekali *outliers* (titik-titik kecil) pada setiap kolom. *Outliers* merupakan sampel yang nilainya cukup jauh dari cakupan umum data dan kemunculannya cukup jarang. Dalam tahap ini, *outliers* yang ada akan dihapus untuk mempertahankan pola dan konsistensi pada data.
 
 ### Oversampling
 
