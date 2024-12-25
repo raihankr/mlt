@@ -32,39 +32,58 @@ Kualitas udara yang buruk berdampak signifikan pada kesehatan manusia dan lingku
 - Membangun 3 model dengan algoritma yang berbeda dan mengevaluasi masing-masing model dengan metrik akurasi, presisi, *recall*, dan *f1 score*, serta *confusion matrix*.
 
 ## Data Understanding
-Dataset yang kami gunakan adalah Air Quality and Pollutant Measurement yang dipublikasikan di Kaggle. Data ini berfokus pada pengukuran kualitas udara di berbagai karaktetistik wilayah. Dataset ini mengandung tepat 5000 sampel atau baris dan mencakup faktor kritis lingkungan dan demografi yang berpengaruh terhadap tingkat polusi udara.
+Dataset yang kami gunakan adalah Air Quality and Pollutant Measurement yang dipublikasikan di Kaggle. Data ini berfokus pada pengukuran kualitas udara di berbagai karaktetistik wilayah. Dataset ini mengandung **tepat 5000 sampel** atau baris dan mencakup faktor kritis lingkungan dan demografi yang berpengaruh terhadap tingkat polusi udara.
 
-Fitur-fitur yang diliput dalam dataset ini mencakup suhu, kelembapan, konsentrasi PM2.5, PM10, NO2, SO2, CO, dan jarak ke daerah industri, serta kepadatan populasi. Variabel target dalam dataset ini merupakan kualitas udara yang dikategorikan ke dalam *good* (baik), *moderate* (sedang), *poor* (buruk), dan *hazardous* (berbahaya)
+Fitur-fitur yang diliput dalam dataset ini mencakup **suhu, kelembapan, konsentrasi PM2.5, PM10, NO2, SO2, CO, dan jarak ke daerah industri, serta kepadatan populasi**. Variabel target dalam dataset ini merupakan kualitas udara yang dikategorikan ke dalam *good* (baik), *moderate* (sedang), *poor* (buruk), dan *hazardous* (berbahaya)
+
 - [Kaggle-Air Quality and Pollutant Measurement](https://www.kaggle.com/api/v1/datasets/download/mujtabamatin/air-quality-and-pollution-assessment).
 
 ### Variabel-variabel pada *Air Quality and Pollutant Measurement dataset* adalah sebagai berikut:
-**Fitur**
+
 1. **Konsentrasi PM2.5 (µg/m³)**: Tingkat partikel halus.
 2. **Konsentrasi PM10 (µg/m³)**: Tingkat partikel kasar.
 3. **Konsentrasi NO2 (ppb)**: Tingkat nitrogen dioksida.
 4. **Konsentrasi SO2 (ppb)**: Tingkat sulfur dioksida.
 5. **Konsentrasi CO (ppm)**: Tingkat karbon monoksida.
-  
-**Target**
-1. ***Air Quality***: Kualitas udara dalam kategori sebagai berikut:
-   1) *Good*: Udara bersih dengan tingkat polutan rendah
-   2) *Moderate*: Adanya beberapa polutan namun masih dapat diterima
-   3) *Poor*: Polusi tampak yang dapat menyebabkan gangguan kesehatan bagi kelompok sensitif.
-   4) *Hazardous*: Udara sangat berpolusi yang dapat menimbulkan gangguan kesehatan serius bagi semua orang.
+6. ***Temperature* (°C)**: Suhu rata-rata.
+7. ***Humidity* (%)**: Tingkat kelembapan.
+8. ***Proximity_to_Industrial_Areas* (km)**: Jarak ke area industri terdekat.
+9. ***Population_Density* (jiwa/km²)**: Kepadatan penduduk.
+10. ***Air Quality***: Kualitas udara dalam kategori sebagai berikut:
+    1) *Good*: Udara bersih dengan tingkat polutan rendah
+    2) *Moderate*: Adanya beberapa polutan namun masih dapat diterima
+    3) *Poor*: Polusi tampak yang dapat menyebabkan gangguan kesehatan bagi kelompok sensitif.
+    4) *Hazardous*: Udara sangat berpolusi yang dapat menimbulkan gangguan kesehatan serius bagi semua orang.
 
-### Distribusi Data Variabel Fitur
+\* Pada model ini saya hanya akan menggunakan fitur-fitur konsentrasi zat polutan (PM2.5, PM10, NO2, SO2, dan CO) serta *Air Quality* sebagai targetnya.
 
-![image](https://github.com/user-attachments/assets/c8809dd7-e2ea-4a83-a8e4-8e99e5b52893)
+### *Missing Values*
+
+Dataset yang saya digunakan dalam projek memiliki 5000 sampel dengan data yang lengkap. Tidak ada satupun *missing value* ditemukan pada sampel. 
+
+### *Outliers*
+
+<img src="https://github.com/user-attachments/assets/9a6c5be5-ab3e-47ff-bbc6-ab41d27f9a58" width="32%"/>
+<img src="https://github.com/user-attachments/assets/5941119e-013d-472e-80c1-f75407e657fc" width="32%"/>
+<img src="https://github.com/user-attachments/assets/8ea3b524-4ec2-499e-b17c-6f1884f1fde8" width="32%"/>
+<img src="https://github.com/user-attachments/assets/4174c2b2-c89e-443a-b35f-ffb8e80ab7fb" width="32%"/>
+<img src="https://github.com/user-attachments/assets/93dba22e-8f59-4c30-8e24-a1857f7693fd" width="32%"/>
+
+Gambar di atas merupakan visualisasi *box plot* untuk mencari *outliers* dalam data. Tampak ada banyak sekali *outliers* (titik-titik kecil) pada setiap kolom. *Outliers* merupakan sampel yang nilainya cukup jauh dari cakupan umum data dan kemunculannya cukup jarang. 
+
+### (*Univariate Analysis*) Distribusi Data Variabel Fitur
+
+![image](https://github.com/user-attachments/assets/0a973a29-a7c1-4684-9780-6923d0b07625)
 
 Berdasarkan gambar di atas, tampak variabel PM2.5, PM10, dan SO2 memiliki distribusi data miring ke kanan. Sedangkan, variabel NO2 memiliki distribusi data cenderung normal. Serta, variabel CO memiliki distribusi data bimodal yang ditunjukkan dengan adanya dua puncak.
 
-### Distribusi Data Variabel Target
+### (*Univariate Analysis*) Distribusi Data Variabel Target
 
-![Screenshot_20241211_231241_Chrome](https://github.com/user-attachments/assets/eefd110b-fcbc-4cd6-9e42-2461fc5753b4)
+![image](https://github.com/user-attachments/assets/667d49a1-139f-49a4-937c-5b2e835eb1e9)
 
 Pada gambar di atas terlihat jelas bahwa jumlah data untuk setiap kelas pada variabel target mengalamai ketidakseimbangan. Hal ini dampat berdampak pada pola yang akan dipelajari oleh model dan berpotensi menghasilkan bias. Oleh karena itu, kami menerapkan *oversampling* pada datazet untuk mempertahankan keseimbangan data.
 
-### Rata-Rata Nilai pada Fitur Numerik
+### (*Multivariate Analysis*) Rata-Rata Nilai pada Fitur Numerik
 
 ![image](https://github.com/user-attachments/assets/5c855ade-0c99-483e-8be4-a1dbc1fd755b)
 ![image](https://github.com/user-attachments/assets/d355680d-25e7-480c-ae70-f07a07267ed5)
@@ -76,15 +95,20 @@ Pada kelima gambar di atas dapat disimpulkan sebuah pola bahwa setiap faktor ata
 
 ## Data Preparation
 
+### Menghapus Fitur yang Kurang Relevan
+
+Kolom-kolom yang akan digunakan pada pelatihan model hanya fitur zat polutan yang mencakup konsentrasi PM2.5, PM10, NO2, SO2, dan CO, serta target "Kualitas Udara" (Air Quality). Selain kolom-kolom tersebut akan dihapus karena kurang relevan dan dapat menggangu konsistensi serta akurasi model.
+
 ### Menangani Outliers
 
-<img src="https://github.com/user-attachments/assets/9a6c5be5-ab3e-47ff-bbc6-ab41d27f9a58" width="32%"/>
-<img src="https://github.com/user-attachments/assets/5941119e-013d-472e-80c1-f75407e657fc" width="32%"/>
-<img src="https://github.com/user-attachments/assets/8ea3b524-4ec2-499e-b17c-6f1884f1fde8" width="32%"/>
-<img src="https://github.com/user-attachments/assets/4174c2b2-c89e-443a-b35f-ffb8e80ab7fb" width="32%"/>
-<img src="https://github.com/user-attachments/assets/93dba22e-8f59-4c30-8e24-a1857f7693fd" width="32%"/>
+Pada tahap ini, semua *outliers*, seperti yang ditunjukkan oleh boxplot pada bagian [*Outliers*](#Outliers), akan dihapus dari dataset dengan menggunakan metode IQR. Dalam metode ini, *outliers* diidentifikasi sebagai nilai pada 1.5 QR di atas Q3 atau 1.5 QR di bawah Q1.
 
-Gambar di atas merupakan visualisasi *box plot* untuk mencari *outliers* dalam data. Tampak ada banyak sekali *outliers* (titik-titik kecil) pada setiap kolom. *Outliers* merupakan sampel yang nilainya cukup jauh dari cakupan umum data dan kemunculannya cukup jarang. Dalam tahap ini, *outliers* yang ada akan dihapus untuk mempertahankan pola dan konsistensi pada data.
+```
+Batas bawah = Q1 - 1.5 * IQR
+Batas atas = Q3 + 1.5 * IQR
+```
+
+Dengan batasan tersebut, kita dapat mengidentifikasi nilai-nilai di luar batas sebagai *outliers* dan menghapusnya dari dataset.
 
 ### Oversampling
 
